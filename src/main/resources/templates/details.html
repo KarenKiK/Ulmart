@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+        name="viewport">
+  <meta content="ie=edge" http-equiv="X-UA-Compatible">
+  <title>Document</title>
+  <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+  <div class="row justify-content-sm-center mt-3">
+    <div class="col col-sm-6">
+      <h1>[[ ${product.getName()} ]]</h1>
+
+      <div class="card">
+        <div class="card-body">
+        </div>
+        <ul class="list-group list-group-flush" data-th-if="${product instanceOf T(ru.itpark.ulmart.domain.IPhone)}">
+          <li class="list-group-item">Color: [[ ${product.getColor()} ]]</li>
+          <li class="list-group-item">Model: [[ ${product.getModel()} ]]</li>
+          <li class="list-group-item">Memory: [[ ${product.getMemorySize()} ]]</li>
+        </ul>
+        <ul class="list-group list-group-flush" data-th-if="${product instanceOf T(ru.itpark.ulmart.domain.TShirt)}">
+          <li class="list-group-item">Color: [[ ${product.getColor()} ]]</li>
+          <li class="list-group-item">Size: [[ ${product.getSize()} ]]</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

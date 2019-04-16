@@ -1,26 +1,61 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+        name="viewport">
+  <meta content="ie=edge" http-equiv="X-UA-Compatible">
+  <title>Document</title>
+  <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
 </head>
 <body>
-<h1>Ozon</h1>
+<div class="container">
+  <div class="row mt-3">
+    <div class="col">
+      <h1>Ulmart</h1>
 
-<form data-th-action="@{/}" method="get">
-    <input type="search" name="search" data-th-value="${search}"> <!-- ?search=value -->
-</form>
+      <form class="mt-3" data-th-action="@{/}" method="get">
+        <div class="row">
+          <div class="col">
+            <input class="form-control" data-th-value="${search}" name="search" type="search"> <!-- ?search=value -->
+          </div>
+        </div>
+      </form>
 
-<!-- for (Book book: books) { } -->
-<div data-th-each="book : ${books}" data-th-if="${book}">
-    <a data-th-href="@{/view/{id}(id=${book.getId()})}">
-    [[ ${book.getId()} ]] [[ ${book.getTitle()} ]] [[ ${book.getAuthor()} ]]
-    </a>
+      <h3 class="mt-3" data-th-if="${search}">Search results for: [[ ${search} ]]</h3>
+
+      <!-- for (Product product: books) { } -->
+      <div class="row mt-3">
+        <div class="col col-sm-4" data-th-each="product : ${products}" data-th-if="${product}">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">
+                [[ ${product.getName()} ]]
+              </h5>
+            </div>
+            <ul class="list-group list-group-flush"
+                data-th-if="${product instanceOf T(ru.itpark.ulmart.domain.IPhone)}">
+              <li class="list-group-item">Color: [[ ${product.getColor()} ]]</li>
+              <li class="list-group-item">Model: [[ ${product.getModel()} ]]</li>
+              <li class="list-group-item">Memory: [[ ${product.getMemorySize()} ]]</li>
+            </ul>
+            <ul class="list-group list-group-flush"
+                data-th-if="${product instanceOf T(ru.itpark.ulmart.domain.TShirt)}">
+              <li class="list-group-item">Color: [[ ${product.getColor()} ]]</li>
+              <li class="list-group-item">Size: [[ ${product.getSize()} ]]</li>
+            </ul>
+
+            <div class="card-body">
+              <a class="btn btn-primary" data-th-href="@{/view/{id}(id=${product.getId()})}">View details</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
-<a data-th-href="@{/add}">Добавить книгу</a>
 </body>
 </html>
