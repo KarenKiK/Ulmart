@@ -1,31 +1,24 @@
 package ru.itpark.ulmart.domain;
 
-public class IPhone extends SmartPhone /*, Colored - множественное наследование запрещено */ {
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+
+@Getter
+@Setter
+public class IPhone extends Product{
   private String model;
   private String color;
   private int memorySize;
+  private String os;
 
-  public String getModel() {
-    return model;
-  }
-
-  public void setModel(String model) {
+  public IPhone(int id, String name, int price, String os, String model, String color, int memorySize){
+    super(id, name, price);
     this.model = model;
-  }
-
-  public String getColor() {
-    return color;
-  }
-
-  public void setColor(String color) {
     this.color = color;
-  }
-
-  public int getMemorySize() {
-    return memorySize;
-  }
-
-  public void setMemorySize(int memorySize) {
     this.memorySize = memorySize;
+    this.os = os;
   }
 }

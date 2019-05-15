@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Изменить книгу</h1>
+
+            <form class="mt-3" data-th-action="@{/edit/{id}(id=${product.getId()})}" method="post">
+                <div class="form-group">
+                    <input class="form-control" type="text" name="name" placeholder="Название книги" data-th-value="${product.getName()}">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="price" placeholder="Автор книги" data-th-value="${product.getPrice()}">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="os" placeholder="Автор книги" data-th-value="${product.getOs()}">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="model" placeholder="Автор книги" data-th-value="${product.getModel()}">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="color" placeholder="Автор книги" data-th-value="${product.getColor()}">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="size" placeholder="Автор книги" data-th-value="${product.getSize()}">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="memorySize" placeholder="Автор книги" data-th-value="${product.getMemorySize()}">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="shelfLIve" placeholder="Автор книги" data-th-value="${product.getShelfLIve()}">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="volume" placeholder="Автор книги" data-th-value="${product.getVolume()}">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="taste" placeholder="Автор книги" data-th-value="${product.getTaste()}">
+                </div>
+                <button class="btn btn-primary">Сохранить</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -5,12 +5,39 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter // сгенерировать get'еры для всех полей
-@Setter // сгенерировать set'еры для всех полей
-@NoArgsConstructor // сгенерировать конструктор без параметров
-@AllArgsConstructor // сгенерировать конструктор со всеми параметрами
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Product {
   private int id;
   private String name;
   private int price;
+
+  public Product(String name, int price, String os, int id) {
+  }
+
+  public int getId() {
+    return id;
+  }
+
+  public void setId(int id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public int getPrice() {
+    return price;
+  }
+
+  public void setPrice(int price) {
+    this.price = price;
+  }
 }

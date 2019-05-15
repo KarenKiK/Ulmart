@@ -1,41 +1,22 @@
 package ru.itpark.ulmart.repository;
 
 import org.springframework.stereotype.Repository;
+import ru.itpark.ulmart.domain.CocaCola;
 import ru.itpark.ulmart.domain.IPhone;
 import ru.itpark.ulmart.domain.Product;
 import ru.itpark.ulmart.domain.TShirt;
 
 @Repository
-public class ProductRepository { // new BookRepository();
-  private Product[] items = new Product[10]; // 10 - null
+public class ProductRepository {
+  private Product[] items = new Product[10];
   private int nextIndex = 0;
 
-  public ProductRepository() {
-    // FIXME: bad hack
-    IPhone iPhone = new IPhone();
-    iPhone.setName("iPhone XR новое поступление");
-    iPhone.setPrice(64_000);
-    iPhone.setModel("XR");
-    iPhone.setOs("iOS");
-    iPhone.setMemorySize(64);
-    iPhone.setColor("Pink Gold");
-
-    TShirt shirt = new TShirt();
-    shirt.setName("Nike");
-    shirt.setPrice(1_000);
-    shirt.setSize(52);
-    shirt.setColor("Black");
-
-    add(iPhone);
-    add(shirt);
-  }
 
   public Product[] getAll() {
     return items;
   }
 
   public void add(Product product) {
-    // TODO: проверить размер (items)
     items[nextIndex] = product;
     nextIndex++;
   }
@@ -47,5 +28,14 @@ public class ProductRepository { // new BookRepository();
       }
     }
     return null;
+  }
+  public void removeById(int id){
+    for (int i = 0; i < items.length; i++){
+      Product product = items[i];
+      if (product != null && product.getId() == id){
+        items[i] = null;
+        return;
+      }
+    }
   }
 }

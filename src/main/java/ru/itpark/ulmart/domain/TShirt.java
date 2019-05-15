@@ -1,22 +1,22 @@
 package ru.itpark.ulmart.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class TShirt extends Product {
   private int size;
   private String color;
 
-  public int getSize() {
-    return size;
-  }
-
-  public void setSize(int size) {
+  public TShirt(int id, String name, int price, int size, String color){
+    super(id, name, price);
     this.size = size;
-  }
-
-  public String getColor() {
-    return color;
-  }
-
-  public void setColor(String color) {
     this.color = color;
   }
+
 }
