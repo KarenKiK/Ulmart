@@ -70,5 +70,6 @@ public class ProductService {
     }
 
   public void removeById(int id) {
+    repository.removeById(id);
   }
 }
