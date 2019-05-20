@@ -90,7 +90,9 @@ public class ProductController {
     return "edit";
   }
 
-  @PostMapping("/edit/{id}")
+
+
+  @PostMapping("/edit/{id}/iphone")
   public String edit(
           @PathVariable int id,
           @RequestParam String name,
@@ -98,20 +100,15 @@ public class ProductController {
           @RequestParam String os,
           @RequestParam String model,
           @RequestParam String color,
-          @RequestParam int size,
-          @RequestParam int memorySize,
-          @RequestParam int shelfLIve,
-          @RequestParam String volume,
-          @RequestParam String taste
+          @RequestParam int memorySize
   ) {
-    service.updateById(id, name, price, os, model, color, size, memorySize, shelfLIve, volume, taste);
+    service.updateById(id, name, price, os, model, color, memorySize);
     return "redirect:/";
   }
 
   @PostMapping("/remove/{id}")
-  public String remove(@PathVariable int id) {
+  public String remove(@PathVariable int id){
     service.removeById(id);
     return "redirect:/";
   }
-
 }

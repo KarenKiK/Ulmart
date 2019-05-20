@@ -17,6 +17,10 @@ public class Product {
   public Product(String name, int price, String os, int id) {
   }
 
+  public Product(int id, String name, int price, String os, String model, String color, int memorySize) {
+
+  }
+
   public int getId() {
     return id;
   }

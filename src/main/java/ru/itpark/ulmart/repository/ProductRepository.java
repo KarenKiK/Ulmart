@@ -21,6 +21,15 @@ public class ProductRepository {
     nextIndex++;
   }
 
+  public void removeById(int id){
+    for (int i = 0; i < items.length; i++){
+      Product product = items[i];
+      if (product != null && product.getId() == id){
+        items[i] = null;
+        return;
+      }
+    }
+  }
   public Product getById(int id) {
     for (Product item : items) {
       if (item != null && item.getId() == id) {
@@ -29,13 +38,12 @@ public class ProductRepository {
     }
     return null;
   }
-  public void removeById(int id){
-    for (int i = 0; i < items.length; i++){
-      Product product = items[i];
-      if (product != null && product.getId() == id){
-        items[i] = null;
-        return;
-      }
+  public void update(Product product){
+    for (int i = 0; i < items.length; i++) {
+      Product item = items[i];
+      if (item != null && item.getId() == product.getId())
+        items[i] = product;
+      return;
     }
   }
 }

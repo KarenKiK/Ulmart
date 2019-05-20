@@ -10,7 +10,6 @@ import ru.itpark.ulmart.repository.ProductRepository;
 @Service
 public class ProductService {
   private ProductRepository repository;
-  private Product products = new Product();
   private int nextId = 1;
 
   public ProductService(ProductRepository repository) {
@@ -65,11 +64,14 @@ public class ProductService {
     return result;
   }
 
-
-    public void updateById(int id, String name, int price, String os, String model, String color, int size, int memorySize, int shelfLIve, String volume, String taste) {
+    public void removeById(int id) {
+        repository.removeById(id);
     }
 
-  public void removeById(int id) {
-    repository.removeById(id);
+
+  public void updateById(int id, String name, int price, String os, String model, String color, int memorySize){
+    Product product = new Product(id, name, price, os, model, color, memorySize);
+    repository.update(product);
   }
+
 }
